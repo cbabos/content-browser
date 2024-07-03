@@ -4,6 +4,6 @@ import ListView from "./ListView";
 describe("ListView example test", () => {
   test("renders heading", async () => {
     render(<ListView />);
-    expect(screen.getByRole("heading", { name: "Some example" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Please find the latest below" })).toBeInTheDocument();
   });
 });
