@@ -1,8 +1,5 @@
 import { useState } from "react";
-
-type tSearchProps = {
-    searchFn: (newQueryString: string) => void
-}
+import { tSearchProps } from "../typedefs/UtilityDescriptor";
 
 function SearchForm({searchFn}: tSearchProps) {
     const [inputValue, setInputValue] = useState<string>('');

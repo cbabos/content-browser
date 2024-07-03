@@ -1,9 +1,13 @@
-import { render, screen } from '@testing-library/react';
+import { cleanup, render, screen } from '@testing-library/react';
 import ListItem from './ListItem';
 import { tListItem } from '../typedefs/ItemDescriptor';
 import mockContent from '../../mocks/mock.json';
 
 describe('Basic functionality of the list view', () => {
+    afterEach(() => {
+        cleanup();
+    })
+
     it('should render an article with heading and a p with the description, also should have a Show more link', () => {
         const exampleItem : tListItem = mockContent[0];
         const clickHandler = () => {};

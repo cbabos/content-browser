@@ -5,7 +5,7 @@
         "description": "Some Description #1"
     },
     {
-        "contentID": "example-2",
+        "contentID": "Lorem-2",
         "title": "Title #2",
         "description": "Some Description #2"
     },
@@ -17,11 +17,11 @@
     {
         "contentID": "example-4",
         "title": "Title #4",
-        "description": "Some Description #4"
+        "description": "Lorem ipsum dolor sit amet"
     },
     {
         "contentID": "example-5",
         "title": "Title #5",
-        "description": "Some Description #5"
+        "description": "Lorem Description #5"
     }
 ]
