@@ -1,6 +1,6 @@
 import { cleanup, render, screen } from '@testing-library/react';
 import ListItem from './ListItem';
-import { tListItem } from '../typedefs/ItemDescriptor';
+import { tListItem, tPokeListItem } from '../typedefs/ItemDescriptor';
 import mockContent from '../../mocks/mock.json';
 
 describe('Basic functionality of the list view', () => {
@@ -8,11 +8,10 @@ describe('Basic functionality of the list view', () => {
         cleanup();
     })
 
-    it('should render an article with heading and a p with the description, also should have a Show more link', () => {
-        const exampleItem : tListItem = mockContent[0];
-        const clickHandler = () => {};
+    it('should render an article with heading, also should have a Show more link', () => {
+        const exampleItem : tPokeListItem = mockContent.results[0];
 
-        render(<ListItem {...exampleItem} clickHandler={clickHandler} />);
+        render(<ListItem {...exampleItem} />);
 
         // Should have an article element
         const articleElement = screen.getByRole('article');
@@ -21,29 +20,13 @@ describe('Basic functionality of the list view', () => {
         // Find the heading element by its role and assert its presence and content
         const headingElement: HTMLElement = screen.getByRole('heading', { level: 2 });
         expect(headingElement).toBeInTheDocument();
-        expect(headingElement).toHaveTextContent(exampleItem.title);
+        expect(headingElement).toHaveTextContent(exampleItem.name);
 
-        // Find the paragraph element by its text content and assert its presence
-        const paragraphElement: HTMLElement = screen.getByText(exampleItem.description);
-        expect(paragraphElement.tagName).toBe('P');
-        expect(paragraphElement).toBeInTheDocument();
 
         // Should contain an A tag with the text of Show more
         const linkElement: HTMLElement = screen.getByText("Show more");
         expect(linkElement).toBeInTheDocument();
-        expect(linkElement.tagName).toBe('BUTTON');
+        expect(linkElement.tagName).toBe('A');
+        expect(linkElement.getAttribute('href')).toBe('/pokemon/1');
     });
-
-    it('should call the provided onClick method with the contentID', () => {
-        const exampleItem : tListItem = mockContent[0];
-
-        const clickFn = jest.fn();
-        render(<ListItem {...exampleItem} clickHandler={clickFn} />);
-
-        // Select the linkElement and click it
-        const linkElement: HTMLElement = screen.getByText("Show more");
-        linkElement.click();
-
-        expect(clickFn).toBeCalledWith(exampleItem.contentID);
-    })
 })

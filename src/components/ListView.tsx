@@ -1,16 +1,13 @@
 import React from 'react';
-import { tList } from '../typedefs/ItemDescriptor';
+import { tPokeList, tPokeListItem } from '../typedefs/ItemDescriptor';
 import ListItem from './ListItem';
 
-const ListView = ({content}: tList) => {
-    const clickMore = (contentID: string) => {
-        console.log(contentID);
-    };
+const ListView = ({content}: tPokeList) => {
 
     return (
         <>
-            <h1>Please find the latest below</h1>
-            {content.map(item => <ListItem key={item.contentID} {...item} clickHandler={clickMore} />)} 
+            <h1>PokeList</h1>
+            {content.map((item: tPokeListItem) => <ListItem key={item.name} {...item} />)} 
         </>
     );
 };
