@@ -1,15 +1,31 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM, { Container } from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import ListViewRoute from './routes/ListViewRoute';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
+import { contentLoader, contentsLoader } from './loaders/ContentLoader';
+import PokemonRoute from './routes/PokemonRoute';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <ListViewRoute />,
+    loader: contentsLoader,
+  },
+  {
+    path: '/pokemon/:id',
+    element: <PokemonRoute />,
+    loader: contentLoader
+  }
+]);
+
+const root: Container = document.getElementById("root") as Container;
+
+ReactDOM.createRoot(root).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
@@ -17,3 +33,4 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+

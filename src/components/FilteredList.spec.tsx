@@ -7,12 +7,12 @@ describe('FilterdList', () => {
         cleanup();
     })
 
-    it('should render the date after applying incoming searchQuery as a filter', () => {
-        const searchQuery = "lorem";
+    it('should render the data after applying incoming searchQuery as a filter', () => {
+        const searchQuery = "saur";
         const emptySearchQuery = "";
-        render(<FilteredList searchQuery={searchQuery} content={mockData} />);
+        render(<FilteredList searchQuery={searchQuery} content={mockData.results} />);
 
         const items = screen.getAllByRole('article');
-        expect(items.length).toBe(2);
+        expect(items.length).toBe(3);
     });
 });

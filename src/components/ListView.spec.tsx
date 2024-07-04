@@ -8,7 +8,7 @@ describe("ListView example test", () => {
   })
 
   it("renders heading", () => {
-    render(<ListView  content={mockData} />);
-    expect(screen.getByRole("heading", { name: "Please find the latest below" })).toBeInTheDocument();
+    render(<ListView  content={mockData.results} />);
+    expect(screen.getByRole("heading", { name: "PokeList", level: 1 })).toBeInTheDocument();
   });
 });

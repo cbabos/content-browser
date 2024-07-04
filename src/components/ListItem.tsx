@@ -1,21 +1,19 @@
-import { tClickableItem } from '../typedefs/InteractionDescriptor';
-import { tListItem } from '../typedefs/ItemDescriptor';
+import { tPokeListItem } from '../typedefs/ItemDescriptor';
 
-const ListItem = ({contentID, title, description, clickHandler}: tListItem & tClickableItem) => {
-    const onClick = (ev: React.MouseEvent<HTMLButtonElement>) => {
-        ev.stopPropagation();
-        ev.preventDefault();
+const ListItem = ({name, url}: tPokeListItem) => {
 
-        if (typeof clickHandler === 'function') {
-            clickHandler(contentID);
-        }
+    let idMatch = url.match(/\/(\d+)\/$/);
+    let idOfPokemon = "";
+    if (idMatch) {
+        idOfPokemon = idMatch[1];
     }
+    
+    const link = `/pokemon/${idOfPokemon}`;
 
     return (
         <article>
-            <h2>{title}</h2>
-            <p>{description}</p>
-            <button onClick={onClick}>Show more</button>
+            <h2>{name}</h2>
+            <a href={link}>Show more</a>
         </article>
     );
 }
