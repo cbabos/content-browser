@@ -13,12 +13,13 @@ const router = createBrowserRouter([
     path: "/",
     element: <ListViewRoute />,
     loader: contentsLoader,
+    children: [{
+      path: '/pokemon/:id',
+      element: <PokemonRoute />,
+      loader: contentLoader
+    }]
   },
-  {
-    path: '/pokemon/:id',
-    element: <PokemonRoute />,
-    loader: contentLoader
-  }
+  
 ]);
 
 const root: Container = document.getElementById("root") as Container;
