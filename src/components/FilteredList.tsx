@@ -1,6 +1,6 @@
 import { tAppliedSearch } from "../typedefs/InteractionDescriptor";
 import { tPokeList, tPokeListItem } from "../typedefs/ItemDescriptor";
-import ListView from "./ListView";
+import PaginatedList from "./PaginatedList";
 
 const findByText = (searchString: string) => (stringToFindIn: string) => {
     return stringToFindIn.toLowerCase().indexOf(searchString.toLowerCase()) > -1;
@@ -12,7 +12,7 @@ const FilteredList = ({content, searchQuery}: tPokeList & tAppliedSearch) => {
 
     return (
         <>
-            <ListView content={newContent} />
+            <PaginatedList content={newContent} />
         </>
     )
 };

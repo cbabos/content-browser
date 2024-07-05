@@ -13,7 +13,7 @@ const ListItem = ({name, url}: tPokeListItem) => {
     return (
         <article>
             <h2>{name}</h2>
-            <a href={link}>Show more</a>
+            <p><a href={link}>Show more</a></p>
         </article>
     );
 }

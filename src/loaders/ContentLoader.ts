@@ -36,6 +36,6 @@ export const contentLoader : ActionFunction = async ({params} ) => {
 }
 
 export async function contentsLoader() {
-    const apiUrl: string = 'https://pokeapi.co/api/v2/pokemon-species/?limit=50';
+    const apiUrl: string = 'https://pokeapi.co/api/v2/pokemon-species/?limit=2000';
     return await getData(apiUrl);
 }
