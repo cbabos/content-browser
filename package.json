@@ -41,7 +41,9 @@
   },
   "devDependencies": {
     "@testing-library/react": "^16.0.0",
+    "@types/papaparse": "^5.3.14",
     "@types/react-paginate": "^7.1.4",
+    "papaparse": "^5.4.1",
     "react-paginate": "^8.2.0",
     "react-router-dom": "^6.24.1"
   }
