@@ -63,6 +63,7 @@ code {
 
 .pagination .disabled a {
   color: rgb(215, 215, 215);
+  cursor: not-allowed;
 }
 
 .listView { 
@@ -108,12 +109,20 @@ form.search-form  {
   flex-direction: row;
 }
 
-form.search-form input,
-form.search-form button {
+input,
+button {
   border: 1px solid #afafaf;
   padding: 5px 5px;
   font-size: 15px;
   outline: none;
+}
+
+button {
+  border-left: 0;
+  background: #ad0b34;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 10px;
 }
 
 form.search-form input { 
@@ -127,4 +136,8 @@ form.search-form button {
   border-left: 0;
   background: #ad0b34;
   color: #fff;
+}
+
+.listView button {
+  float: right;
 }
